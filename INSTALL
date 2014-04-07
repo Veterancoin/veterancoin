@@ -1,0 +1,9 @@
+Building Veterancoin
+
+See doc/readme-qt.rst for instructions on building Veterancoin-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Veterancoin.
+
+See doc/build-*.txt for instructions on building veterancoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of Veterancoin.
