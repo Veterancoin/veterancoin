@@ -39,7 +39,7 @@ static boost::thread_group* rpc_worker_group = NULL;
 
 static inline unsigned short GetDefaultRPCPort()
 {
-    return GetBoolArg("-testnet", false) ? 19778 : 59778;
+    return GetBoolArg("-testnet", false) ? 25792 : 15792;
 }
 
 Object JSONRPCError(int code, const string& message)

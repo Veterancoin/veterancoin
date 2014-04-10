@@ -32,7 +32,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xed76a804c146217dc2ba436cc641311c791c07b5a85c0fda4c94a218a586145d");
+uint256 hashGenesisBlock("0x");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Veterancoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2813,10 +2813,10 @@ bool LoadBlockIndex()
     if (fTestNet)
     {
         pchMessageStart[0] = 0xbb;
-        pchMessageStart[1] = 0xaa;
-        pchMessageStart[2] = 0xaa;
-        pchMessageStart[3] = 0xaa;
-        hashGenesisBlock = uint256("0xed76a804c146217dc2ba436cc641311c791c07b5a85c0fda4c94a218a586145d");
+        pchMessageStart[1] = 0xab;
+        pchMessageStart[2] = 0xad;
+        pchMessageStart[3] = 0xda;
+        hashGenesisBlock = uint256("0x");
     }
 
     //
@@ -2851,26 +2851,26 @@ bool InitBlockIndex() {
 	*/
 
         // Genesis block
-        const char* pszTimestamp = "April 6, 2014, George Strait wins ACM Entertainer of the Year.";
+        const char* pszTimestamp = "April 9, 2014, Four school stabbing victims in critical condition; teen suspect charged as adult";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 25 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1396853004;
+        block.nTime    = 1397115429;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 872834;
+        block.nNonce   = 0;
 
         if (fTestNet)
         {
-            block.nTime    = 1396853004;
-            block.nNonce   = 872834;
+            block.nTime    = 1397115429;
+            block.nNonce   = 0;
         }
 
         //// debug print
@@ -2878,9 +2878,9 @@ bool InitBlockIndex() {
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x457cccefb98d8a2ddb709d213660f15af5c8618f1881fe266cd66277b53aa0ae"));
+        assert(block.hashMerkleRoot == uint256("0x"));
  // If genesis block hash does not match, then generate new genesis hash.
-        if (true && block.GetHash() != hashGenesisBlock)
+        if (false && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
